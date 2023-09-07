@@ -1,6 +1,6 @@
 from selene import browser, have
 import os
-from tests.conftest import RESOURCE_PATH
+from Tests.conftest import RESOURCE_PATH
 
 
 class RegistartionPage:
