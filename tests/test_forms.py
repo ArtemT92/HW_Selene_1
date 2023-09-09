@@ -1,5 +1,5 @@
 from selene import browser, have
-from HW_selene_1.pages.registration_page import RegistartionPage
+from hw_selene_1.pages.registration_page import RegistartionPage
 
 
 
@@ -25,20 +25,21 @@ def test_registration_form():
 
 
     # Then
-    registartion_page.assert_registered_user_with().should(
-        have.exact_text(
-            'Артем Трунилин',
-            'trunilin@mail.com',
-            'Male',
-            '8910787986',
-            '06 April,1992',
-            'English',
-            'Sports',
-            'photo.jpg',
-            'Мирная 186 д1',
-            'NCR Delhi',
-        )
+    registartion_page.assert_registered_user_with(
+        'Артем Трунилин',
+        'trunilin@mail.com',
+        'Male',
+        '8910787986',
+        '06 April,1992',
+        'English',
+        'Sports',
+        'photo.jpg',
+        'Мирная 186 д1',
+        'NCR Delhi',
     )
+
+
+
 
 
 
