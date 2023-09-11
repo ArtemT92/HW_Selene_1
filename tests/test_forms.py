@@ -2,11 +2,9 @@ from selene import browser, have
 from hw_selene_1.pages.registration_page import RegistartionPage
 
 
-
 def test_registration_form():
     registartion_page = RegistartionPage()
     registartion_page.open()
-
 
     # When
     registartion_page.fill_first_name('Артем')
@@ -23,7 +21,6 @@ def test_registration_form():
     registartion_page.fill_city('Delhi')
     registartion_page.submit()
 
-
     # Then
     registartion_page.assert_registered_user_with(
         'Артем Трунилин',
@@ -37,16 +34,3 @@ def test_registration_form():
         'Мирная 186 д1',
         'NCR Delhi',
     )
-
-
-
-
-
-
-
-
-
-
-
-
-

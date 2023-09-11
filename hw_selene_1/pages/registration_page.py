@@ -18,6 +18,7 @@ class RegistartionPage:
 
     def fill_gendare(self):
         browser.element('[for="gender-radio-1"').click()
+
     def fill_number(self, value):
         browser.element('#userNumber').type(value)
 
@@ -44,7 +45,6 @@ class RegistartionPage:
     def submit(self):
         browser.element('#submit').click()
 
-
     def fill_date_of_birth(self, year, month, day):
         browser.element('#dateOfBirthInput').click()
         browser.element('.react-datepicker__month-select').send_keys(month)
@@ -67,25 +67,3 @@ class RegistartionPage:
                 state_and_city
             )
         )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
