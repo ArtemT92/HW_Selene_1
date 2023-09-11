@@ -67,7 +67,7 @@ class RegistartionPage:
         browser.element('.react-datepicker__year-select').send_keys(year)
         browser.element(f'.react-datepicker__day--00{day}').click()
 
-    def should_have_registere(self, user: User):
+    def should_have_registered(self, user: User):
         browser.element('.table').all('td').even.should(
             have.exact_texts(
                 f'{user.first_name} {user.last_name}',
