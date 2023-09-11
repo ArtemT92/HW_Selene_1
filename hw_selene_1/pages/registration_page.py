@@ -1,9 +1,25 @@
 from selene import browser, have
 import os
 from tests.conftest import RESOURCE_PATH
+from hw_selene_1.pages.user import User
 
 
 class RegistartionPage:
+    def fill(self, user: User):
+        self.fill_first_name(user.first_name)
+        self.fill_last_name(user.last_name)
+        self.fill_email(user.email)
+        self.fill_gendare()
+        self.fill_number(user.phone_number)
+        self.fill_subject(user.subject)
+        self.fill_hobbies()
+        self.choose_picture(user.picture)
+        self.fill_adress(user.address)
+        self.fill_state(user.state)
+        self.fill_city(user.city)
+        self.submit()
+        self.fill_date_of_birth(user.date_of_birth)
+
     def open(self):
         browser.open('/')
 
@@ -18,6 +34,7 @@ class RegistartionPage:
 
     def fill_gendare(self):
         browser.element('[for="gender-radio-1"').click()
+
     def fill_number(self, value):
         browser.element('#userNumber').type(value)
 
@@ -44,48 +61,24 @@ class RegistartionPage:
     def submit(self):
         browser.element('#submit').click()
 
-
     def fill_date_of_birth(self, year, month, day):
         browser.element('#dateOfBirthInput').click()
         browser.element('.react-datepicker__month-select').send_keys(month)
         browser.element('.react-datepicker__year-select').send_keys(year)
         browser.element(f'.react-datepicker__day--00{day}').click()
 
-    def assert_registered_user_with(self, full_name, email, gender, mobile_number, date_of_birth,
-                                    subjects, hobbies, picture, current_address, state_and_city):
+    def should_have_registere(self, user: User):
         browser.element('.table').all('td').even.should(
             have.exact_texts(
-                full_name,
-                email,
-                gender,
-                mobile_number,
-                date_of_birth,
-                subjects,
-                hobbies,
-                picture,
-                current_address,
-                state_and_city
+                f'{user.first_name} {user.last_name}',
+                user.email,
+                user.gender,
+                user.phone_number,
+                user.date_of_birth,
+                user.subject,
+                user.hobby,
+                user.picture,
+                user.address,
+                f'{user.state} {user.city}'
             )
         )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
