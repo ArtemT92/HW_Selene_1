@@ -38,6 +38,12 @@ class RegistartionPage:
     def fill_number(self, value):
         browser.element('#userNumber').type(value)
 
+    def fill_date_of_birth(self, year, month, day):
+        browser.element('#dateOfBirthInput').click()
+        browser.element('.react-datepicker__month-select').send_keys(month)
+        browser.element('.react-datepicker__year-select').send_keys(year)
+        browser.element(f'.react-datepicker__day--00{day}').click()
+
     def fill_subject(self, value):
         browser.element('#subjectsInput').type(value).press_enter()
 
@@ -61,11 +67,7 @@ class RegistartionPage:
     def submit(self):
         browser.element('#submit').click()
 
-    def fill_date_of_birth(self, year, month, day):
-        browser.element('#dateOfBirthInput').click()
-        browser.element('.react-datepicker__month-select').send_keys(month)
-        browser.element('.react-datepicker__year-select').send_keys(year)
-        browser.element(f'.react-datepicker__day--00{day}').click()
+
 
     def should_have_registered(self, user: User):
         browser.element('.table').all('td').even.should(
