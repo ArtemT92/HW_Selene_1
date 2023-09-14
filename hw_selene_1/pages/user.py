@@ -8,7 +8,9 @@ class User:
     email: str
     gender: str
     phone_number: str
-    date_of_birth: str
+    birth_day: str
+    birth_month: str
+    birth_year: str
     subject: str
     hobby: str
     picture: str
@@ -23,7 +25,9 @@ student = User(
     email='trunilin@mail.com',
     gender='Male',
     phone_number='8910787986',
-    date_of_birth='06 April,1992',
+    birth_day='6',
+    birth_month='April',
+    birth_year='1992',
     subject='English',
     hobby='Sports',
     picture='photo.jpg',

@@ -5,21 +5,6 @@ from hw_selene_1.pages.user import User
 
 
 class RegistartionPage:
-    def fill(self, user: User):
-        self.fill_first_name(user.first_name)
-        self.fill_last_name(user.last_name)
-        self.fill_email(user.email)
-        self.fill_gendare()
-        self.fill_number(user.phone_number)
-        self.fill_subject(user.subject)
-        self.fill_hobbies()
-        self.choose_picture(user.picture)
-        self.fill_adress(user.address)
-        self.fill_state(user.state)
-        self.fill_city(user.city)
-        self.submit()
-        self.fill_date_of_birth(user.date_of_birth)
-
     def open(self):
         browser.open('/')
 
@@ -67,20 +52,35 @@ class RegistartionPage:
     def submit(self):
         browser.element('#submit').click()
 
-
+    def fill(self, user: User):
+        self.fill_first_name(user.first_name)
+        self.fill_last_name(user.last_name)
+        self.fill_email(user.email)
+        self.fill_gendare()
+        self.fill_number(user.phone_number)
+        self.fill_date_of_birth(user.birth_day, user.birth_month, user.birth_year)
+        self.fill_subject(user.subject)
+        self.fill_hobbies()
+        self.choose_picture(user.picture)
+        self.fill_adress(user.address)
+        self.fill_state(user.state)
+        self.fill_city(user.city)
+        self.submit()
 
     def should_have_registered(self, user: User):
         browser.element('.table').all('td').even.should(
-            have.exact_texts(
-                f'{user.first_name} {user.last_name}',
-                user.email,
-                user.gender,
-                user.phone_number,
-                user.date_of_birth,
-                user.subject,
-                user.hobby,
-                user.picture,
-                user.address,
-                f'{user.state} {user.city}'
-            )
+            have.exact_texts(f'{user.first_name} {user.last_name}',
+                             user.email,
+                             user.gender,
+                             user.phone_number,
+                             f'{user.birth_day} {user.birth_month},{user.birth_year}',
+                             user.subject,
+                             user.hobby,
+                             user.picture,
+                             user.address,
+                             f'{user.state} {user.city}'
+                             )
         )
+
+
+

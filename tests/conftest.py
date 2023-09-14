@@ -9,9 +9,9 @@ RESOURCE_PATH = os.path.abspath(os.path.join(PROJECT_ROOT_PATH, 'resources'))
 
 @pytest.fixture(scope='function', autouse=True)
 def browser_managment():
-    browser.config.base_url = ('https://demoqa.com/automation-practice-form')
-    browser.config.window_width = 1920
-    browser.config.window_height = 1080
+    browser.config.base_url = 'https://demoqa.com/automation-practice-form'
+    browser.config.window_width = 900
+    browser.config.window_height = 800
 
     yield
 
