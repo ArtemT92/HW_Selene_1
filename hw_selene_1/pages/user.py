@@ -25,7 +25,7 @@ student = User(
     email='trunilin@mail.com',
     gender='Male',
     phone_number='8910787986',
-    birth_day='6',
+    birth_day='10',
     birth_month='April',
     birth_year='1992',
     subject='English',
@@ -33,5 +33,4 @@ student = User(
     picture='photo.jpg',
     address='Мирная 186 д1',
     state='NCR',
-    city='Delhi'
-)
+    city='Delhi')

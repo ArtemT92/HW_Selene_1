@@ -27,7 +27,7 @@ class RegistartionPage:
         browser.element('#dateOfBirthInput').click()
         browser.element('.react-datepicker__month-select').send_keys(month)
         browser.element('.react-datepicker__year-select').send_keys(year)
-        browser.element(f'.react-datepicker__day--00{day}').click()
+        browser.element(f'.react-datepicker__day--0{day}').click()
 
     def fill_subject(self, value):
         browser.element('#subjectsInput').type(value).press_enter()
@@ -58,7 +58,7 @@ class RegistartionPage:
         self.fill_email(user.email)
         self.fill_gendare()
         self.fill_number(user.phone_number)
-        self.fill_date_of_birth(user.birth_day, user.birth_month, user.birth_year)
+        self.fill_date_of_birth(user.birth_year, user.birth_month, user.birth_day)
         self.fill_subject(user.subject)
         self.fill_hobbies()
         self.choose_picture(user.picture)
@@ -81,6 +81,3 @@ class RegistartionPage:
                              f'{user.state} {user.city}'
                              )
         )
-
-
-
